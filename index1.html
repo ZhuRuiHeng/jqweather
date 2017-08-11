@@ -1,0 +1,312 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta content="email=no" name="format-detection" />
+<meta charset="utf-8">
+<mata name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,use-scalable=no">
+<title>天气预报</title>
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+<style>
+ *{
+        padding: 0px;
+        margin: 0px;
+    }
+#page1{
+	background:url(images/bg_rain_night.jpg)no-repeat;
+	background-size:cover;
+	color:#FFF;
+}
+    #page1 h5,h3,div>p{
+        line-height: 40px;
+    }
+    
+#text{
+	text-align: center;
+}
+#page01{
+        display: none;
+        background: #fff;
+        width: 50%;
+        margin-top: 40px;
+        margin-left: 50%;
+    }
+ul{
+    margin-top: 40px;
+    }
+li{
+	list-style:none;
+	float:left;
+	width:23%;
+}
+li:before{
+	content:;
+	height:36px;
+	width:1px;
+	background:#FFF;
+    }
+  
+   
+    table tr{
+        border: 1px solid red;
+        line-height: 30px;
+    }    
+ table tr:nth-child(2n){
+     background:#ffffcc;
+}
+
+table tr td{
+        width: 33%;
+    }
+
+
+</style>
+</head>
+
+<body>
+<div data-role="page" id="page1">
+	<div data-role="header" data-position="fixed">
+    	<a href="#page2" data-role="button" data-icon="user" data-iconpos="notext"></a>
+        <h1>天气预报</h1>
+        <a href="#page5" data-transition="flip" data-role="button" data-icon="bars" data-iconpos="notext"></a>
+    </div>
+    <div data-role="content">
+    	<div id="text">
+            <h5>中国天气网</h5>
+            <h3>欢迎 test</h3>
+            <h1 style="font-size:100px;margin:80px 0">26°</h1>
+            <div>
+                <p>小雨</p>
+                <p>北京</p>
+                <p>周三</p>
+            </div>
+        </div>
+       
+        <hr/>
+        <ul>
+        	<li>
+            	<p>晴</p>
+                <p>26°C/13°C</p>
+                <p>周四</p>
+            </li>
+            <li>
+            	<p>晴</p>
+                <p>26°C/13°C</p>
+                <p>周五</p>
+            </li>
+            <li>
+            	<p>晴</p>
+                <p>26°C/13°C</p>
+                <p>周六</p>
+            </li>
+            <li>
+            	<p>晴</p>
+                <p>26°C/13°C</p>
+                <p>周日</p>
+            </li>
+        </ul>
+    </div>
+    <div data-role="footer" data-position="fixed">
+    	<div data-role="navbar" >
+        	<ul>
+            	<li><a href="#">深圳</a></li>
+                <li><a href="#">广州</a></li>
+                <li><a href="#"  class="ui-btn-active">北京</a></li>
+                <li><a href="#">上海</a></li>
+            </ul>
+        </div>
+    </div>	
+</div>
+ <div data-role="page" id="page01">
+    <div data-role="conent" >
+        <p><a href="#">北京</a></p>
+            <p><a href="#">上海</a></p>
+            <a href="#page1" data-role="button" data-icon="delete" data-iconpos="left">关闭</a>
+    </div>
+</div> 
+<div data-role="page" id="page2">
+	<div data-role="header">
+    	<a href="#page1" data-transition="flip">首页</a>
+    	<h1>登录</h1>
+    </div>
+    <div data-role="content">
+    	<form method="post" action="demoform.asp">
+            <div data-role="fieldcontain">
+                <label for="username">用户名：</label>
+                <input type="text" name="username" id="username">
+                <label for="password">密码:</label>
+                <input type="text" name="password" id="password">
+            </div>
+        </form>
+        <a href="#page3" data-transition="flip">尚未注册？</a>
+        <a href="#page1" data-transition="flip" data-role="button">登录</a>
+    </div>
+</div>
+    <div data-role="page" id="page3">
+    <div data-role="header">
+        <a href="#page2" data-transition="flip">首页</a>
+        <h1>注册</h1>
+    </div>
+    <div data-role="content">
+        <form method="post" action="demoform.asp">
+            <div data-role="fieldcontain">
+                <label for="username">用户名:</label>
+                <input type="text" name="username" id="username">
+                <label for="password">密码：</label>
+                <input type="text" name="password" id="password">
+                <label for="password">确认密码</label>
+                <input type="text" name="password" id="password">
+            </div>
+        </form>
+        <a href="#page4" data-transition="flip" data-role="button" data-rel="dialog">注册</a>
+    </div>
+</div>
+<div data-role="page" id="page4">
+    <div data-role="header">
+        <h1>登录信息</h1>
+    </div>
+    <div data-role="content">
+        <p>注册成功，点击“确定”返回首页</p>
+        <a href="#page1" data-transition="flip" data-role="button">确定</a>
+    </div>
+</div>
+<div data-role="page" id="page5">
+    <div data-role="header">
+        <a href="#page1" data-transition="flip">首页</a>
+        <h1>城市管理</h1>
+        <a href="#page5.1" data-rel="dialog" data-transition="flip" data-icon="check" data-iconpos="notext"></a>
+    </div>
+    <div data-role="content">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0" id="table"> 
+            <tr id="tr1">
+                <td><h4>默认城市</h4></td>
+                <td><h4>城市名称</h4></td>
+                <td></td>
+            </tr>
+             <!-- 
+            <tr>
+                <td><input type="radio" /></td>
+                <td>深圳</td>
+                <td><a href="#">删除</a></td>
+            </tr>-->
+          
+        </table>
+        <a href="#page6" data-transition="flip" data-role="button" data-mini="true"  data-inline="true" id="tianjia">添加城市</a>
+    </div>
+</div>
+<div data-role="page" id="page5.1">
+    <div data-role=header>
+        <h1>提示</h1>
+    </div>
+    <div data-role="content">
+        请指定默认城市
+        <a href="#page5" data-transition="flip" data-role="button">确定</a>
+    </div>
+</div>
+<div data-role="page" id="page6">
+        <div data-role="header">
+            <a href="#page5">返回</a>
+            <h1>添加城市</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="collapsibleset" id="list">
+                <div data-role="collapsible">
+                 
+                </div>
+               
+            </div>
+        </div>
+    </div>
+ 
+<script src="js/jquery-1.12.2.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script>
+    $(document).on("pagecreate","#page1",function(){
+        $("#page1").on("swipeleft",function(){
+            $("#page01").css({display:"block"});
+        });
+    });
+     $(document).on("pagecreate","#page1",function(){
+        $("#page01").on("swiperight",function(){
+            $(this).css({display:"none"});
+        });
+    });
+    
+    /////////////////////////////////////////////////////////////////////////////////////////
+    
+	var city=['深圳','郑州','石家庄','广州','北京','上海']
+var cityArr=""
+//console.log(city[3])
+for(var i=0;i<city.length;i++){
+    var cityStr=""
+    var cityStr='<tr><td><input type="radio" /></td><td>'+city[i]+'</td><td><a href="#" >删除</a></td></tr>'
+   // console.log(cityStr)
+    cityArr+=cityStr
+}
+    document.getElementById("table").innerHTML = cityArr;
+     $("#table").collapsibleset().trigger("treat");//刷新
+  /*  $("#tianjia").click(function(){
+	$("ul:eq(1)").clone(true).appendTo("div");
+})*/
+$("td>a").click(function(){
+	$(this).parent().parent().remove();
+})
+
+ //////////////////////////////////////////////////////////////////////////////////// //////////  
+     var xmlhttp;
+        if (window.XMLHttpRequest) {
+            //ie7+及其它浏览器
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            //ie6及以下版本
+            xmlhttp = new ActiveXObject("microsoft.xmlhttp");
+        }
+
+        xmlhttp.open("get", "city1.json", true);
+        //发送请求
+        xmlhttp.send();
+        xmlhttp.onreadystatechange = function() {
+
+            //readyState=4，表示请求已经完成
+            //status=200，表示请求成功
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //responseText，服务器返回的字符串
+                var data = JSON.parse(xmlhttp.responseText);
+
+                var allStr = ""; //定义一个空数组放省市
+                var len1 = data.code.length;//获取省的长度
+                console.log(data.code)
+                // console.log(len1)
+                for (var i = 0; i < len1; i++) {
+                    //console.log(i)循环省
+                    // console.log(data.code[i].province);
+                    var proStr="";//声明一个空数组存放省
+                    proStr += '<div data-role="collapsible"><h1>' + data.code[i].province + '</h1>'; //获取省份
+
+
+                    var len2 = data.code[i].cities.length;//在循环之前，获取城市长度
+                    //console.log(len2);
+                    var cityStr = "";//声明一个空数组存放城市
+                    for (var j = 0; j < len2; j++) {
+                        cityStr += '<p><a href="#page2">' + data.code[i].cities[j].name + '</a></p>'
+                        //console.log(city.length)
+                    }
+
+                    allStr += proStr + cityStr + '</div>';//省＋城市
+                    // alert(1);
+                }
+                document.getElementById("list").innerHTML = allStr;
+                $("#list").collapsibleset().trigger("treat");//刷新
+
+            }
+        };
+        
+	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta content="email=no" name="format-detection" />
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>首页</title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
+
+	<style>
+body{
+	background-image: url(../images/bg0_rain_day.jpg);
+	background-size: auto 100%;
+	background-attachment: fixed;
+}
+#index{
+	background: none;
+}
+.main ul,.main dl,.main dd,.main dt{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+ li{
+	list-style: none;
+}
+.main h1,.main h2,.main h3,.main li{
+	text-shadow: none;
+	color: #fff;
+	text-align: center;
+}
+.main .top h1{
+	font-size: 12px;
+}
+.main .top h2{
+	font-size: 16px;
+}
+.main .top h3{
+	font-size: 60px;
+	padding-left: 40px;
+}
+.main .top li:first-child{
+	height: 28px;
+	width: 22px;
+	margin: 0 auto;
+	background-image: url(../images/white.png)
+}
+.main .top li{
+	line-height: 28px;
+	font-size: 14px;
+}
+.main .top{
+	border-bottom: 2px solid #fff;
+}
+.ui-content{
+	padding-left: 0;
+	padding-right: 0;
+}
+.main .btm li{
+	width: 25%;
+	box-sizing: border-box;
+	float: left;
+}
+.main .btm ul{
+	padding-top: 20px;
+}
+.main .btm li{
+	border-right: 1px solid #fff;
+}
+.main .btm li:last-child{
+	border:none
+}
+.main dt{
+	height: 30px;
+	width: 22px;
+	margin: 0 auto;
+	background-image: url(../images/white.png)
+}
+.main dt,.main dd{
+	font-size: 12px;
+	line-height: 24px;
+	font-weight: bold;
+}
+.more_city{
+	width: 50%;
+	height: 100%;
+	background: #fff;
+	position: fixed;
+	top: 0;
+	left: 100%;
+	z-index: 1001;
+	padding: 0  10px;
+	box-sizing: border-box;
+	transition: all .3s linear;
+	visibility: hidden;
+}
+.show{
+	visibility: visible;
+	left: 50%;
+}
+    </style>
+	<body>
+        <div data-role="page" id="index">
+            <div data-role="header" data-position="fixed" data-tap-toggle="false">
+                <a href="#" data-role="button" data-icon="user" data-iconpos="notext"></a>
+                <h1>天气预报</h1>
+                <a href="#page2" data-role="button" data-icon="bars" data-iconpos="notext"></a>
+            </div>
+            <div data-role="content" class="main">
+                <div id="top" style="text-align:center">
+                    <h1>中国天气网</h1>
+                    <h2>欢迎<span>test</span></h2>
+                    <h3><span>26</span>°</h3>
+                    <ul>
+                       <!-- <li class="d0"></li>
+                        <li>小雨</li>
+                        <li>石家庄</li>
+                        <li>周三</li>-->
+                    </ul>
+                </div>
+                <div id="btm">
+                    <ul>
+                        <!--<li>
+                            <dl class="d1">
+                                <dt class=""></dt>
+                                <dd>多云</dd>
+                                <dd>26°C/13°C</dd>
+                                <dd>周四</dd>
+                            </dl>
+                        </li>-->
+                    </ul>
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed" id="foot_nav">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#" class="ui-btn-active">深圳</a></li>
+                        <li><a href="#">郑州</a></li>
+                        <li><a href="#">石家庄</a></li>
+                        <li><a href="#">深圳</a></li>
+                        <li><a href="#">深圳</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <script src="js/jquery-1.12.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    </body>
+</html>

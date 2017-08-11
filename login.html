@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta content="email=no" name="format-detection" />
+<meta charset="utf-8">
+<mata name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,use-scalable=no">
+<title>登录</title>
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
+<style>
+   .ui-field-contain p{
+			font-size: 12px;
+			color: red;
+			visibility: hidden;
+		}
+	
+</style>
+</head>
+
+<body>
+<div data-role="page" id="page1">
+	<div data-role="header">
+    	<a href="#">首页</a>
+    	<h1>登录</h1>
+    </div>
+    <div data-role="content" id="#content">
+    	<form action="index.html" method="post" data-ajax = "false">
+            <div class="ui-field-contain">
+                <label for="username">用户名:</label>
+                <input type="text" name="username" id="username">
+                <p>请输入用户名</p>
+                <label for="userpsw">密码:</label>
+                <input type="password" name="userpsw" id="userpsw">
+                <p>请输入密码</p>
+            </div>
+            <a href="#page2" >尚未注册？</a>
+            <input type="submit" id="" name="" value="登录" />
+        </form>
+       
+    </div>
+</div>
+    <div data-role="page" id="page2">
+    <div data-role="header">
+        <a href="#page1" data-transition="flip">首页</a>
+        <h1>注册</h1>
+    </div>
+    <div data-role="content"> 
+        <form method="post" action="demoform.asp">
+            <div data-role="fieldcontain">
+                <label for="username">用户名:</label>
+                <input type="text" name="username" id="username">
+                <p class="p1">请输入用户名</p>
+                <label for="userpsw">密码：</label>
+                <input type="password" name="userpsw" id="userpsw">
+                <p class="p2">请输入密码</p>
+                <label for="userpsw">确认密码</label>
+                <input type="password" name="userpsw" id="userpsw">
+            </div>
+        </form>
+        <a href="#page3" data-transition="flip" data-role="button" data-rel="dialog">注册</a>
+    </div>
+</div>
+<div data-role="page" id="page3">
+    <div data-role="header">
+        <h1>登录信息</h1>
+    </div>
+    <div data-role="content">
+        <p>注册成功，点击“确定”返回首页</p>
+        <a href="#page1" data-role="button">确定</a>
+    </div>
+</div>
+  <div data-role="page" id="page5">
+        <div data-role="header">
+            <a href="#">返回</a>
+            <h1>添加城市</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="collapsibleset" id="list">
+
+               
+            </div>
+        </div>
+    </div>
+<script src="js/jquery-1.12.2.min.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script>
+  $("form").on("submit",function(){
+				$("p").eq(0).css("visibility","hidden");
+				if($("#username").val()==""){
+					$("p").eq(0).css("visibility","visible");
+					return false
+				}else if($("#userpsw").val()==""){
+					$("p").eq(1).css("visibility","visible");
+					return false
+				};
+				
+				localStorage.setItem("userId",$("#username").val());
+				
+			})
+			
+</script>
+</body>
+</html>

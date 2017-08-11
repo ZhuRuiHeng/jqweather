@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta content="email=no" name="format-detection" />
+
+    <meta charset="utf-8">
+    <mata name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,use-scalable=no">
+        <title>添加城市</title>
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+        <style>
+            a{
+                display: block;
+            }
+        </style>
+</head>
+
+<body>
+    <div data-role="page" id="page1">
+        <div data-role="header">
+            <a href="#">返回</a>
+            <h1>添加城市</h1>
+        </div>
+        <div data-role="content">
+            <div data-role="collapsibleset" id="list">
+                <div data-role="collapsible">
+                 
+                </div>
+           </div>
+        </div>
+    </div>
+    <div data-role="page" id="page2">
+			<div data-role = "header">
+				<a href="#" data-icon = "delete" data-iconpos = "notext" data-role = "button" data-rel = "back">关闭</a>
+				<h1>提示</h1>
+			</div>
+			<div data-role = "content" >
+				<p id="tip_txt"></p>
+				<a href="#" data-rel = "back" data-role = "button">确定</a>
+			</div>
+    </div>
+   
+    <script src="js/jquery-1.12.2.min.js"></script>
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            //ie7+及其它浏览器
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            //ie6及以下版本
+            xmlhttp = new ActiveXObject("microsoft.xmlhttp");
+        }
+
+        xmlhttp.open("get", "city1.json", true);
+        //发送请求
+       xmlhttp.send();
+        xmlhttp.onreadystatechange = function() {
+            //readyState=4，表示请求已经完成
+            //status=200，表示请求成功
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                //responseText，服务器返回的字符串
+                var data = JSON.parse(xmlhttp.responseText);
+
+                var allStr = ""; //定义一个空数组放省市
+                var len1 = data.code.length;//获取省的长度
+
+                // console.log(len1)
+                for (var i = 0; i < len1; i++) {
+                    //console.log(i)循环省
+                    // console.log(data.code[i].province);
+                    var proStr="";//声明一个空数组存放省
+                    proStr += '<div data-role="collapsible"><h1>' + data.code[i].province + '</h1>'; //获取省份
+
+
+                    var len2 = data.code[i].cities.length;//在循环之前，获取城市长度
+                    //console.log(len2);
+                    var cityStr = "";//声明一个空数组存放城市
+                    for (var j = 0; j < len2; j++) {
+                        cityStr += '<p><a href="#page2">' + data.code[i].cities[j].name + '</a></p>'
+                        //console.log(city.length)
+                    }
+
+                    allStr += proStr + cityStr + '</div>';//省＋城市
+                    // alert(1);
+                }
+                document.getElementById("list").innerHTML = allStr;
+                $("#list").collapsibleset().trigger("treat");//刷新
+
+            }
+        };
+        
+        
+    </script>
+</body>
+
+</html>
